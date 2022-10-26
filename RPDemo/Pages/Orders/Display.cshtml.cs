@@ -2,6 +2,7 @@ using DataLibrary.Data;
 using DataLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using RPDemo.Pages.Models;
 
 namespace RPDemo.Pages.Orders
 {
@@ -12,6 +13,9 @@ namespace RPDemo.Pages.Orders
 
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
+
+        [BindProperty]
+        public OrderUpdateModel UpdateModel { get; set; }
 
         public OrderModel Order { get; set; }
 
@@ -36,6 +40,17 @@ namespace RPDemo.Pages.Orders
             }
 
             return Page();
+        }
+
+        public async Task<IActionResult> OnPost()
+        {
+            if(ModelState.IsValid == false)
+            {
+                return Page();
+            }
+            await _orderData.UpdateOrderName(UpdateModel.Id, UpdateModel.OrderName);
+
+            return RedirectToPage("./Display", new {UpdateModel.Id});
         }
     }
 }
