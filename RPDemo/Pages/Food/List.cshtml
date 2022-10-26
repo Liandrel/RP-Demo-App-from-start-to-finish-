@@ -1,0 +1,28 @@
+﻿@page
+@using System.Globalization
+@model RPDemo.Pages.Food.ListModel
+@{
+    ViewData["Title"] = "Food List";
+}
+
+<h1>Food List</h1>
+
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var food in Model.Food)
+        {
+            <tr>
+                <td>@food.Title</td>
+                <td>@food.Description</td>
+                <td>@food.Price.ToString("C",CultureInfo.CreateSpecificCulture("en-US"))</td>
+            </tr>
+        }
+    </tbody>
+</table>
