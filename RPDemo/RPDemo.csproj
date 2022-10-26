@@ -10,12 +10,10 @@
     <Reference Include="DataLibrary">
       <HintPath>DataLibrary.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="DataLibrary.dll">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
+	  <PackageReference Include="Dapper" Version="2.0.123" />
+	  <PackageReference Include="Microsoft.Data.SqlClient" Version="5.0.1" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
   </ItemGroup>
 
 </Project>
