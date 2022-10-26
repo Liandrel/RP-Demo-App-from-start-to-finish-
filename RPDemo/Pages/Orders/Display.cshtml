@@ -23,17 +23,22 @@ else
                     <td><strong>Order Date</strong></td>
                     <td>@Model.Order.OrderDate</td>
                 </tr>
-                    <tr>
+                <tr>
                     <td><strong>Order Total</strong></td>
                     <td>@Model.Order.Total.ToString("C",CultureInfo.CreateSpecificCulture("en-US"))</td>
                 </tr>
-                    <tr>
+                <tr>
                     <td><strong>Item Ordered</strong></td>
                     <td>@Model.ItemPurchased</td>
                 </tr>
-                    <tr>
+                <tr>
                     <td><strong>Quantity</strong></td>
                     <td>@Model.Order.Quantity</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <a asp-page="./Delete" asp-route-id="@Model.Order.Id" class="btn btn-danger">Delete Order</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
