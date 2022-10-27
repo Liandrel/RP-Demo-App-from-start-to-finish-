@@ -13,6 +13,7 @@ namespace RPDemo.Pages.Orders
         public int Id { get; set; }
 
         public OrderModel  Order { get; set; }
+
         public DeleteModel(IOrderData orderData)
         {
             _orderData = orderData;
@@ -24,7 +25,7 @@ namespace RPDemo.Pages.Orders
 
         public async Task<IActionResult> OnPost()
         {
-            _orderData.DeleteOrder(Id);
+           await _orderData.DeleteOrder(Id);
 
             return RedirectToPage("./Create");
         }
